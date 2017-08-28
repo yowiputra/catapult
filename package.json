@@ -1,0 +1,29 @@
+{
+  "name": "catapult",
+  "version": "1.0.0",
+  "description": "A small web app that lets users to view upcoming space launch missions around the world, with some details about each one:",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "sass": "./node_modules/node-sass/bin/node-sass ./public/sass/styles.scss ./public/styles/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yowiputra/catapult.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yowiputra/catapult/issues"
+  },
+  "homepage": "https://github.com/yowiputra/catapult#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "node-fetch": "^1.7.2",
+    "node-sass": "^4.5.3"
+  }
+}
