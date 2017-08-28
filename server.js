@@ -10,6 +10,7 @@ app.set("view engine", "ejs");
 
 // Middlewares
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static("public"));
 
 // Routes
 app.get("/", (req, res, next) => {
@@ -23,7 +24,7 @@ app.get("/", (req, res, next) => {
     res.render("index", templateVars);
   })
   .catch(err => {
-    console.log(err);
+    res.sendStatus(500);
   });
 })
 
