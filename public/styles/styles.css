@@ -13,10 +13,25 @@ header {
 
 .disappearing {
   opacity: 0;
-  animation: disappear 2s ease-in; }
+  animation: disappear 2s ease-in;
+  transform: translateY(-100%); }
 
 @keyframes disappear {
   0% {
-    opacity: 1; }
+    opacity: 1;
+    transform: translateY(0); }
   70% {
     opacity: 0.5; } }
+
+html {
+  box-sizing: border-box;
+  font-family: 'Roboto Condensed', sans-serif; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+body {
+  background-color: #eee; }
+
+th, td {
+  text-align: center; }

@@ -16,40 +16,42 @@
     <h1>catapult: upcoming launches directory</h1>
   </header>
   <br/>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Launch Time</th>
-        <th>Rocket</th>
-        <th>Space Agencies</th>
-        <th>Launch Location</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% data.forEach((datum) => { %>
+  <main class=container>
+    <table class="table table-striped">
+      <thead>
         <tr>
-          <!-- Display launch time -->
-          <td>
-            <%= datum.net %>
-          </td>
-          <!-- Display rocket name -->
-          <td>
-            <a href=<%= datum.rocket.wikiURL %>><%= datum.rocket.name %></a>
-          </td>
-          <!-- Display the space agencies involved -->
-          <td>
-            <% datum.location.pads[0].agencies.forEach((agency) => { %>
-              <a href=<%= agency.wikiURL %>><%= agency.abbrev %></a>
-            <% }) %>
-          </td>
-          <!-- Display the launch location -->
-          <td>
-            <a href=<%= datum.location.pads[0].mapURL%>><%= datum.location.name %></a>
-          </td>
+          <th>Launch Time</th>
+          <th>Rocket</th>
+          <th>Space Agencies</th>
+          <th>Launch Location</th>
         </tr>
-      <% }) %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% data.forEach((datum) => { %>
+          <tr>
+            <!-- Display launch time -->
+            <td>
+              <%= datum.net %>
+            </td>
+            <!-- Display rocket name -->
+            <td>
+              <a href=<%= datum.rocket.wikiURL %>><%= datum.rocket.name %></a>
+            </td>
+            <!-- Display the space agencies involved -->
+            <td>
+              <% datum.location.pads[0].agencies.forEach((agency) => { %>
+                <a href=<%= agency.wikiURL %>><%= agency.abbrev %></a>
+              <% }) %>
+            </td>
+            <!-- Display the launch location -->
+            <td>
+              <a href=<%= datum.location.pads[0].mapURL%>><%= datum.location.name %></a>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </main>
   <script type="text/javascript" src="/scripts/app.js"></script>
 </body>
 </html>
