@@ -33,7 +33,7 @@ app.get("/", (req, res, next) => {
 queryAndCacheData(launchURL)
   .then(() => {
     app.listen(port, () => {
-      console.log(`Example app listening on port ${port}!`);
+      console.log(`catapult listening on port ${port}!`);
       // refresh cache at an arbitrary rate
       setInterval(queryAndCacheData.bind(null, launchURL), refreshRate);
     });
