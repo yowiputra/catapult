@@ -11,8 +11,8 @@
 
 .disappearing {
   opacity: 0;
-  animation: disappear 2s ease-in;
   transform: translateY(-100%);
+  animation: disappear 2s ease-in;
 }
 
 @keyframes disappear {
@@ -20,8 +20,7 @@
     opacity: 1;
     transform: translateY(0);
   }
-
-  70%{
+  75%{
     opacity: 0.5;
   }
 }
@@ -39,6 +38,15 @@ body {
   background-color: #eee;
 }
 
+header {
+  padding: 15px;
+}
+
+th {
+  
+}
+
 th, td {
-  text-align: center;
+  vertical-align: top;
+  min-width: 150px;
 }

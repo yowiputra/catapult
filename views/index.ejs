@@ -15,14 +15,13 @@
   <header>
     <h1>catapult: upcoming launches directory</h1>
   </header>
-  <br/>
   <main class=container>
     <table class="table table-striped">
       <thead>
         <tr>
           <th>Launch Time</th>
           <th>Rocket</th>
-          <th>Space Agencies</th>
+          <th>Agencies</th>
           <th>Launch Location</th>
         </tr>
       </thead>
@@ -40,7 +39,7 @@
             <!-- Display the space agencies involved -->
             <td>
               <% datum.location.pads[0].agencies.forEach((agency) => { %>
-                <a href=<%= agency.wikiURL %>><%= agency.abbrev %></a>
+                <a href=<%= agency.wikiURL %> style="display:block"><%= agency.abbrev %></a>
               <% }) %>
             </td>
             <!-- Display the launch location -->
