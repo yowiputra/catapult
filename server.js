@@ -33,7 +33,8 @@ function cachingLaunchData(url){
 
 // Routes
 app.get("/", (req, res, next) => {
-  cachingLaunchData(launchURL, launchData);
+  // redundancy in case data doesn't load during server startup
+  cachingLaunchData(launchURL);
   res.render("index", launchData);
 })
 
