@@ -6,3 +6,15 @@ A small web app that lets users to view upcoming space launch missions around th
 - Launch location (e.g. "Cape Canaveral")
 - Time of launch
 - Wikipedia links for each launch, agency and rocket
+
+## instructions
+- Run `npm install` to install all dependencies
+- Run `npm start` to run the server
+- Go to your browser and open <http://localhost:8080/>.
+
+## dependencies
+- express
+- ejs
+- body-parser
+- node-fetch
+- node-sass
