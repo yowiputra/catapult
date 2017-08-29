@@ -1,7 +1,7 @@
 const express    = require("express");
 const bodyParser = require("body-parser");
 
-const getLaunchData = require("./getLaunchData.js");
+const getLaunchData = require("./utils/getLaunchData.js");
 
 const port        = process.env.PORT || 8080;
 const refreshRate = 900000; //15 minutes
