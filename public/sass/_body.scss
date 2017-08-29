@@ -38,14 +38,6 @@ body {
   background-color: #eee;
 }
 
-header {
-  padding: 15px;
-}
-
-th {
-
-}
-
 th, td {
   vertical-align: top;
   min-width: 150px;
@@ -53,4 +45,18 @@ th, td {
 
 .agency-abbrev {
 	display: block;
+}
+
+.mission-id, .mission-type{
+	display: block;
+}
+
+.hoverable{
+	display:none;
+}
+
+.hover-trigger:hover + .hoverable + .hoverable,
+.hoverable:hover + .hoverable,
+.hoverable:hover{
+	display:table-row;
 }

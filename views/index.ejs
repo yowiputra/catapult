@@ -27,7 +27,7 @@
       </thead>
       <tbody>
         <% data.forEach((datum) => { %>
-          <tr>
+          <tr class='hover-trigger'>
             <!-- Display launch time -->
             <td>
               <%= datum.net %>
@@ -47,6 +47,19 @@
             <!-- Display the launch location -->
             <td>
               <a href=<%= datum.location.pads[0].mapURL%>><%= datum.location.name %></a>
+            </td>
+          </tr>
+          <tr class='hoverable'>
+          </tr>
+          <tr class='hoverable'>
+            <td colspan='4'>
+              <% if(datum.missions[0]) { %>
+                <h3><%= datum.missions[0].name %></h3>
+                <span class="mission-id">Mission ID: <%= datum.missions[0].id %></span>
+                <span class="mission-type">Mission Type: <%= datum.missions[0].typeName %></span>
+                <br/>
+                <p><%= datum.missions[0].description %></p>
+              <% } %>
             </td>
           </tr>
         <% }) %>
