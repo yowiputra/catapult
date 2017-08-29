@@ -43,10 +43,14 @@ header {
 }
 
 th {
-  
+
 }
 
 th, td {
   vertical-align: top;
   min-width: 150px;
+}
+
+.agency-abbrev {
+	display: block;
 }

@@ -39,7 +39,9 @@
             <!-- Display the space agencies involved -->
             <td>
               <% datum.location.pads[0].agencies.forEach((agency) => { %>
-                <a href=<%= agency.wikiURL %> style="display:block"><%= agency.abbrev %></a>
+                <span class="agency-abbrev">
+                  <a href=<%= agency.wikiURL %>><%= agency.abbrev %></a>
+                </span>
               <% }) %>
             </td>
             <!-- Display the launch location -->
