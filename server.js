@@ -30,6 +30,7 @@ app.get("/", (req, res, next) => {
   res.render("index", launchData);
 })
 
+// Get launchData during server startup
 queryAndCacheData(launchURL)
   .then(() => {
     app.listen(port, () => {
