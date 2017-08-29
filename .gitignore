@@ -59,4 +59,5 @@ typings/
 
 # additional files
 /CodeChallengeREADME.md
+/npm-debug.log
 .DS_Store
