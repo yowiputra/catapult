@@ -1,6 +1,5 @@
 const express    = require("express");
 const bodyParser = require("body-parser");
-const fetch      = require("node-fetch");
 
 const getLaunchData = require("./getLaunchData.js");
 
@@ -24,7 +23,7 @@ function cachingLaunchData(url){
   })
 }
 
-// Cache data in memory during initial startup and refresh once every
+// Cache data in memory during initial server startup and refresh once every
 // arbitrary amount of time
 cachingLaunchData(launchURL);
 setInterval(cachingLaunchData.bind(null, launchURL), refreshRate);
