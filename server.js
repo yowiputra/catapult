@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 // In-memory storage
 let launchData = {};
 
-// Functions
+// Caching functions
 function queryData(url){
   getLaunchData(url).then((result) => {
     launchData = result;
@@ -24,24 +24,29 @@ function queryData(url){
 }
 
 function cachingLaunchData(url){
-  if(!launchData.data){
-    queryData(url);
-  } else {
-    console.log("fetch from cache");
-  }
+  return new Promise(function(resolve, reject) {
+    if(!launchData.data){
+      queryData(url);
+    } else {
+      console.log("fetch from cache");
+    }
+    resolve();
+  });
 }
 
 // Routes
 app.get("/", (req, res, next) => {
   // redundancy in case data doesn't load during server startup
-  cachingLaunchData(launchURL);
-  res.render("index", launchData);
+  cachingLaunchData(launchURL).then(() => {
+    res.render("index", launchData);
+  })
 })
 
 app.listen(port, () => {
   // Cache data in memory during initial server startup and refresh once every
   // arbitrary amount of time
-  cachingLaunchData(launchURL);
-  setInterval(queryData.bind(null, launchURL), refreshRate);
-  console.log(`Example app listening on port ${port}!`);
+  cachingLaunchData(launchURL).then(() => {
+    setInterval(queryData.bind(null, launchURL), refreshRate);
+    console.log(`Example app listening on port ${port}!`);
+  })
 });
