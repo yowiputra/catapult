@@ -38,11 +38,15 @@
             </td>
             <!-- Display the space agencies involved -->
             <td>
-              <% datum.location.pads[0].agencies.forEach((agency) => { %>
-                <span class="agency-abbrev">
-                  <a href=<%= agency.wikiURL %>><%= agency.abbrev %></a>
-                </span>
-              <% }) %>
+              <% if (datum.location.pads[0].agencies.length !== 0) { %>
+                <% datum.location.pads[0].agencies.forEach((agency) => { %>
+                  <span class="agency-abbrev">
+                    <a href=<%= agency.wikiURL %>><%= agency.abbrev %></a>
+                  </span>
+                <% }) %>
+              <% } else { %>
+                <span class="agency-abbrev">Not Listed</span>
+              <% } %>
             </td>
             <!-- Display the launch location -->
             <td>
@@ -63,6 +67,8 @@
                 <span class="mission-type">Mission Type: <%= datum.missions[0].typeName %></span>
                 <br/>
                 <p><%= datum.missions[0].description %></p>
+              <% } else { %>
+                <span>Mission details unlisted</span>
               <% } %>
             </td>
           </tr>
