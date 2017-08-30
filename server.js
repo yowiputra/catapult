@@ -1,11 +1,11 @@
 const express       = require("express");
 const bodyParser    = require("body-parser");
 
+// The promise that fetches the data from api is separated for modularity
 const getLaunchData = require("./utils/getLaunchData.js");
 
 const port          = process.env.PORT || 8080;
 const refreshRate   = 900000; //15 minutes
-const launchURL     = "https://launchlibrary.net/1.2/launch/next/50";
 
 // Server setup
 const app = express();
@@ -16,9 +16,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 // In-memory storage
 let launchData = {};
 
-// Caching function
-function queryAndCacheData(url){
-  return getLaunchData(url)
+// Utilized promises for fetching api data and storing it as cache
+function queryAndCacheData(){
+  return getLaunchData()
     .then((result) => {
       console.log("setting cache...");
       launchData = result;
@@ -30,12 +30,12 @@ app.get("/", (req, res, next) => {
   res.render("index", launchData);
 })
 
-// Get launchData during server startup
-queryAndCacheData(launchURL)
+// Get launchData during server startup, then listen to port
+queryAndCacheData()
   .then(() => {
     app.listen(port, () => {
       console.log(`catapult listening on port ${port}!`);
       // refresh cache at an arbitrary rate
-      setInterval(queryAndCacheData.bind(null, launchURL), refreshRate);
+      setInterval(queryAndCacheData, refreshRate);
     });
   });
