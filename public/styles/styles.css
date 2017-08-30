@@ -33,6 +33,19 @@ html {
 body {
   background-color: #eee; }
 
+table {
+  overflow: scroll;
+  border-collapse: collapse; }
+
+thead {
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1; }
+
 th, td {
   vertical-align: top;
   min-width: 150px; }
