@@ -9,7 +9,7 @@ A small web app built on Node.js, Express and ejs that lets users view upcoming 
 - Mission details
 
 ## screenshots
-![Screenshot of the index page](https://github.com/yowiputra/tinyApp/blob/master/public/images/Index%20Page.png)
+![Screenshot of the index page](https://github.com/yowiputra/catapult/blob/master/public/images/Index%20Page.png)
 
 ## instructions
 - Run `npm install` to install all dependencies
