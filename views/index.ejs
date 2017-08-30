@@ -46,7 +46,11 @@
             </td>
             <!-- Display the launch location -->
             <td>
-              <a href=<%= datum.location.pads[0].mapURL%>><%= datum.location.name %></a>
+              <% if (datum.location.pads[0].mapURL) { %>
+                <a href=<%= datum.location.pads[0].mapURL%>><%= datum.location.name %></a>
+              <% } else { %>
+                <a><%= datum.location.name %></a>
+              <% } %>
             </td>
           </tr>
           <tr class='hoverable'>
